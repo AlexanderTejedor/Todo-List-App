@@ -39,3 +39,15 @@ function useLocalStorage(itemName, initialValue) {
 }
 
 export {useLocalStorage};
+
+/* 
+localStorage.removeItem('todos_V1');
+
+const defaultTodos = [
+    {text: 'Levantarme a las 5:30 am', completed: false},
+    {text: 'Estudiar minimo 2 horas', completed: false},
+    {text: 'Hacer tarea de la Universidad', completed: false},
+    {text: 'Hacer reto de Fronted Mentor', completed: false},
+    {text: 'Lectura de media hora', completed: false},
+]
+localStorage.setItem('todos_V1', JSON.stringify(defaultTodos)) */

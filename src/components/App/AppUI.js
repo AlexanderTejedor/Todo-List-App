@@ -8,18 +8,9 @@ import { TodoDate } from '../TodoDate/TodoDate';
 import { TodosLoading } from '../TodosLoading/TodosLoading';
 import { TodosError } from '../TodosError/TodosError';
 import { EmptyTodos } from '../EmptyTodos/EmptyTodos';
+import { TodoContext } from '../TodoContext/TodoContext';
 
-function AppUI({
-    loading,
-    error,
-    totalTodos,
-    completedTodos,
-    searchValue,
-    setSearchValue,
-    searchedTodos,
-    completeTodo,
-    deleteTodo
-}) {
+function AppUI() {
     return (
         <main className='main-container'>
             <section className='todo-content'>
@@ -28,29 +19,36 @@ function AppUI({
                     <TodoDay/>
                     <TodoDate/>
                 </div>
-                <TodoCount completed={completedTodos} total={totalTodos}/>
+                <TodoCount/>
                     {/* input */}
-                <TodoSearch
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                />
+                <TodoSearch/>
 
+                <TodoContext.Consumer>
                 {/* list */}
-                <TodoList>
-                    {loading && <TodosLoading/>}
-                    {error && <TodosError/>}
-                    {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
-
-                    {searchedTodos.map(todo => (
-                        <TodoItem 
-                            key={todo.text} 
-                            text={todo.text}
-                            completed={todo.completed}
-                            onComplete={() => completeTodo(todo.text)}
-                            onDelete={() => deleteTodo(todo.text)}
-                        />
-                    ))}
-                </TodoList>
+                    {({
+                        loading,
+                        error,
+                        searchedTodos,
+                        completeTodo,
+                        deleteTodo,
+                    }) => (
+                        <TodoList>
+                        {loading && <TodosLoading/>}
+                        {error && <TodosError/>}
+                        {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
+    
+                        {searchedTodos.map(todo => (
+                            <TodoItem 
+                                key={todo.text} 
+                                text={todo.text}
+                                completed={todo.completed}
+                                onComplete={() => completeTodo(todo.text)}
+                                onDelete={() => deleteTodo(todo.text)}
+                            />
+                        ))}
+                        </TodoList>
+                    )}
+                </TodoContext.Consumer>
                 {/* Buttom */}
                 <TodoButtom/>
             </section>
