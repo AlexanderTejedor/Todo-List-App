@@ -1,11 +1,9 @@
 import '../../styles/style.css'
-function TodoButtom(){
+function TodoButtom({setOpenModal}) {
     return(
         <div className='botton-container'>
             <button onClick={ (event) => {
-                console.log('click')
-                console.log(event)
-                console.log(event.target)
+                setOpenModal(prevState => !prevState)
             }
             } className='todo-button'>+</button>
         </div>

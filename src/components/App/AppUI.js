@@ -4,6 +4,7 @@ import { TodoSearch } from '../TodoSearch/TodoSeach';
 import { TodoList } from '../TodoList/TodoList';
 import { TodoItem } from '../TodoItem/TodoItem';
 import { TodoButtom } from '../TodoButtom/TodoButton';
+import { TodoForm } from '../TodoButtom/TodoButton';
 import { TodoDay } from '../TodoDate/TodoDay';
 import { TodoDate } from '../TodoDate/TodoDate';
 import { TodosLoading } from '../TodosLoading/TodosLoading';
@@ -50,11 +51,11 @@ function AppUI() {
                     ))}
                 </TodoList>
                 {/* Buttom */}
-                <TodoButtom/>
+                <TodoButtom setOpenModal={setOpenModal}/>
 
                 {openModal && (
                     <Modal>
-                        Funcionalidad de agregar ToDos
+                        <TodoForm/>
                     </Modal>
                 )}
             </section>
