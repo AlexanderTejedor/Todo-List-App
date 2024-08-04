@@ -9,6 +9,7 @@ import { TodoDate } from '../TodoDate/TodoDate';
 import { TodosLoading } from '../TodosLoading/TodosLoading';
 import { TodosError } from '../TodosError/TodosError';
 import { EmptyTodos } from '../EmptyTodos/EmptyTodos';
+import { Modal } from '../Modal/Modal';
 import { TodoContext } from '../TodoContext/TodoContext';
 
 function AppUI() {
@@ -18,6 +19,8 @@ function AppUI() {
         searchedTodos,
         completeTodo,
         deleteTodo,
+        openModal,
+        setOpenModal,
     } = React.useContext(TodoContext);
 
     return (
@@ -33,22 +36,27 @@ function AppUI() {
                 <TodoSearch/>
                 {/* list */}
                 <TodoList>
-                        {loading && <TodosLoading/>}
-                        {error && <TodosError/>}
-                        {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
-    
-                        {searchedTodos.map(todo => (
-                            <TodoItem 
-                                key={todo.text} 
-                                text={todo.text}
-                                completed={todo.completed}
-                                onComplete={() => completeTodo(todo.text)}
-                                onDelete={() => deleteTodo(todo.text)}
-                            />
-                        ))}
-                        </TodoList>
+                    {loading && <TodosLoading/>}
+                    {error && <TodosError/>}
+                    {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
+                    {searchedTodos.map(todo => (
+                        <TodoItem
+                            key={todo.text}
+                            text={todo.text}
+                            completed={todo.completed}
+                            onComplete={() => completeTodo (todo.text)}
+                            onDelete={() => deleteTodo (todo.text)}
+                        />
+                    ))}
+                </TodoList>
                 {/* Buttom */}
                 <TodoButtom/>
+
+                {openModal && (
+                    <Modal>
+                        Funcionalidad de agregar ToDos
+                    </Modal>
+                )}
             </section>
         </main>
         );
