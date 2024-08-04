@@ -1,4 +1,4 @@
-import './css/style.css'
+import '../../styles/style.css'
 function TodoList(props){
     return(
         <ul className='todo-list'>

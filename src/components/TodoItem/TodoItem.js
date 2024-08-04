@@ -1,4 +1,4 @@
-import './css/style.css'
+import '../../styles/style.css'
 import { FaRegCircleCheck } from "react-icons/fa6"
 import { RiCloseFill } from "react-icons/ri";
 

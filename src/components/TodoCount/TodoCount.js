@@ -1,4 +1,4 @@
-import './css/style.css'
+import '../../styles/style.css'
 import { FaUserLarge } from "react-icons/fa6";
 
 function TodoCount({total, completed}){
