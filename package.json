@@ -32,7 +32,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://AlexanderTejedor.github.io/Todo-List-App",
+  "homepage": "git@github.com:AlexanderTejedor/Todo-List-App.git",
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
