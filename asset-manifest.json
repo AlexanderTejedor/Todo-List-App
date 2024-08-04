@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/AlexanderTejedor/Todo-List-App/static/css/main.a914feaa.css",
+    "main.js": "/AlexanderTejedor/Todo-List-App/static/js/main.7c5fd49d.js",
+    "index.html": "/AlexanderTejedor/Todo-List-App/index.html",
+    "main.a914feaa.css.map": "/AlexanderTejedor/Todo-List-App/static/css/main.a914feaa.css.map",
+    "main.7c5fd49d.js.map": "/AlexanderTejedor/Todo-List-App/static/js/main.7c5fd49d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a914feaa.css",
+    "static/js/main.7c5fd49d.js"
+  ]
+}
