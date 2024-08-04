@@ -1,3 +1,4 @@
+import React from 'react';
 import { TodoCount } from '../TodoCount/TodoCount';
 import { TodoSearch } from '../TodoSearch/TodoSeach';
 import { TodoList } from '../TodoList/TodoList';
@@ -11,6 +12,14 @@ import { EmptyTodos } from '../EmptyTodos/EmptyTodos';
 import { TodoContext } from '../TodoContext/TodoContext';
 
 function AppUI() {
+    const {
+        loading,
+        error,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+    } = React.useContext(TodoContext);
+
     return (
         <main className='main-container'>
             <section className='todo-content'>
@@ -22,17 +31,8 @@ function AppUI() {
                 <TodoCount/>
                     {/* input */}
                 <TodoSearch/>
-
-                <TodoContext.Consumer>
                 {/* list */}
-                    {({
-                        loading,
-                        error,
-                        searchedTodos,
-                        completeTodo,
-                        deleteTodo,
-                    }) => (
-                        <TodoList>
+                <TodoList>
                         {loading && <TodosLoading/>}
                         {error && <TodosError/>}
                         {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
@@ -47,8 +47,6 @@ function AppUI() {
                             />
                         ))}
                         </TodoList>
-                    )}
-                </TodoContext.Consumer>
                 {/* Buttom */}
                 <TodoButtom/>
             </section>
