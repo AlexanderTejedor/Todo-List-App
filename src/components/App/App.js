@@ -51,9 +51,14 @@ function App() {
           error={error}
           loading={loading}
           searchTodos={searchedTodos}
+          totalTodos={totalTodos}
+          searchText={searchValue}
           onError={() => <TodosError />}
           onLoading={() => <TodosLoading />}
           onEmtyTodos={() => <EmptyTodos />}
+          onEmtySearchResults={(searchText) => (
+            <p>No has creado un Todo de {searchText}</p>
+          )}
           render={(todo) => (
             <TodoItem
               key={todo.text}
@@ -63,7 +68,17 @@ function App() {
               onDelete={() => deleteTodo(todo.text)}
             />
           )}
-        />
+        >
+          {/* {(todo) => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          )} */}
+        </TodoList>
         {/* Buttom */}
         <TodoButtom setOpenModal={setOpenModal} />
 
