@@ -38,7 +38,7 @@ function App() {
           <TodoDay />
           <TodoDate />
         </div>
-        <TodoHeader>
+        <TodoHeader loading={loading}>
           <TodoCount totalTodos={totalTodos} completedTodos={completedTodos} />
           {/* input */}
           <TodoSearch
