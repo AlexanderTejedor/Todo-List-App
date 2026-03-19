@@ -11,8 +11,9 @@ import { TodoDate } from "../TodoDate/TodoDate";
 import { TodosLoading } from "../TodosLoading/TodosLoading";
 import { TodosError } from "../TodosError/TodosError";
 import { EmptyTodos } from "../EmptyTodos/EmptyTodos";
-import { Modal } from "../Modal/Modal";
 import { TodoHeader } from "../TodoHeader/TodoHeader";
+import { Modal } from "../Modal/Modal";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert/ChangeAlert.js";
 
 function App() {
   const {
@@ -87,6 +88,7 @@ function App() {
             <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
           </Modal>
         )}
+        <ChangeAlertWithStorageListener />
       </section>
     </main>
   );
