@@ -3,7 +3,14 @@ import { withStorageListener } from "./withStorageListener";
 
 const ChangeAlert = ({ show, toggleShow }) => {
   if (show) {
-    return <p>¿Hubo Cambios?</p>;
+    return (
+      <div>
+        <p>¿Hubo Cambios?</p>
+        <button onClick={() => toggleShow(false)}> Volver a cargar </button>
+      </div>
+    );
+  } else {
+    return null;
   }
 };
 
